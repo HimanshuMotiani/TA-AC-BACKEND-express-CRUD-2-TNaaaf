@@ -47,5 +47,14 @@ router.get("/:id/delete", (req, res) => {
     })
 })
 
+//like
+router.get("/:id/likes", (req, res) => {
+    var id = req.params.id
+    Article.findByIdAndUpdate(id,{$inc:{likes:1}} ,(err, article) => {
+        res.redirect("/articles/"+id)
+    })
+})
+
+
 
 module.exports = router;

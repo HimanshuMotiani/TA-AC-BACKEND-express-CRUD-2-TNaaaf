@@ -13,8 +13,9 @@
 <h3><%=article.tags%></h3>
 <h4><%=article.author%></h4>
 <h5><%=article.likes%></h5>
-<button>Increment</button>
-<button>Decrement</button>
+<a href="/articles/<%=article.id%>/likes">
+    <button>Increment</button>
+</a>
 <a href="/articles/<%=article.id%>/edit">
 <button>Edit</button>
 </a>
