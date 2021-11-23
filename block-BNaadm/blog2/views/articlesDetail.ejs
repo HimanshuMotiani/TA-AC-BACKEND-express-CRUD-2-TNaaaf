@@ -32,6 +32,10 @@
 <h2>Comments</h2>
 <%article.comments.forEach(comment=>{%>
 <p><%=comment.content%></p>
+<h5><%=comment.likes%></h5>
+<a href="/comments/<%=comment.id%>/likes">
+    <button>Like</button>
+</a>
 <a href="/comments/<%=comment.id%>/edit">
     <button>Edit</button>
 </a>
