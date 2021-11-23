@@ -27,4 +27,14 @@ router.get("/:id/delete",(req,res)=>{
         
     })
 })
+
+//likes
+router.get("/:id/likes",(req,res)=>{
+    var id = req.params.id;
+    Comment.findByIdAndUpdate(id,{$inc:{likes:1}},(err,comment)=>{
+        if(err) return next(err);
+        console.log(err,comment);
+        res.redirect("/articles/"+ comment.articleId)
+    })
+})
 module.exports = router
