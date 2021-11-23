@@ -1,13 +1,15 @@
 var express = require("express");
+const { populate } = require("../models/author");
 var router = express.Router();
+var Author = require("../models/author")
 
-router.get("/",(req,res)=>{
-    res.render("authors",{authors:["Apoorva Kumar Singh","Abhay K.","Amit Shah","R P N Singh","Margaret Atwood","Jokha Alharthi"]})
-})
-router.get("/:id",(req,res)=>{
-    var id = req.params.id;
-
-    res.render("authorBooks",{books:["Cricket World Cup: The Indian Challenge","My Journey","Making of New India",	"Whispers of Time"]})
-})
+router.get('/sortbyauthor/:author',(req, res, next) => {
+    let author = req.params.author;
+    Author.findOne({"name": author}).populate('bookIds').exec((err, author)=>{
+      Author.find((err, authors) =>{
+        res.render('booksEachAuthor',{books :author.bookIds,name:author.name, authors})
+      })
+    })
+  })
 
 module.exports = router

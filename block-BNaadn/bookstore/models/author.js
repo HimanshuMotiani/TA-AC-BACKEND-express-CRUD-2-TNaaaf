@@ -5,7 +5,7 @@ var authorSchema = new Schema({
     name:String,
     email:String,
     country:String,
-    books:[{type:Schema.Types.ObjectId,ref:"book"}]
+    bookIds:[{type:Schema.Types.ObjectId,ref:"Book"}]
 })
 
 var Author = mongoose.model("Author",authorSchema)

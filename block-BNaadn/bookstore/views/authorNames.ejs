@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <section>
+          <div>
+            <div>Sort by:</div>
+            <a href="/books">Book Names</a >
+            <a href="/books/sortbyauthor">Author Name</a >
+            <a href="/books/sortbycategory">Category </a >
+          </div>
+        </section>
+             <section>
+            <div>
+              <%authors.forEach(ele=>{%>
+                  <a href="/authors/sortbyauthor/<%=ele.name%>" class="each-button"><%=ele.name%></a>
+              <%})%>
+            </div>
+            </section>
+      </main>
+</body>
+</html>
