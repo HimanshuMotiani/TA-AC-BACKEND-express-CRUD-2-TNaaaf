@@ -20,18 +20,19 @@
           </div>
         </section>
         <section>
+          <div>
+            <%authors.forEach(ele=>{%>
+                <a href="/authors/sortbyauthor/<%=ele.name%>" class="each-button"><%=ele.name%></a>
+            <%})%>
+          </div>
+          </section>
+        <section>
           <%books.forEach(ele=>{%>
             <article>
               <div>
-                <img
-                  src="<%=ele.cover_image_url%>"
-                  alt="cover image"
-                />
-              </div>
-              <div>
                 <h4><%=ele.title%></h4>
                 <h6><%=ele.category%></h6>
-                <h5><span>By: </span><%=ele.authorId.name%></h5>
+                <h5><span>By: </span><%=name%></h5>
               </div>
             </article>
           <%})%>

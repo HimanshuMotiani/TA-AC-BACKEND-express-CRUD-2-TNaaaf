@@ -7,7 +7,8 @@ var bookSchema = new Schema({
     pages:Number,
     publication:String,
     cover_image:String,
-    authorId:{type:Schema.Types.ObjectId,ref:"author"}
+    category:String,
+    authorId:{type:Schema.Types.ObjectId,ref:"Author"}
 })
 
 var Book = mongoose.model("Book",bookSchema)

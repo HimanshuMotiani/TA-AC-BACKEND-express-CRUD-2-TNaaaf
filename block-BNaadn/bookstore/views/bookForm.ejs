@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h2>Book Form</h2>
+    </header>
+    <section>
+        <form action="/books" method="POST">
+                  <div>
+                    <label>Title</label>
+                    <div>
+                      <input class="input" type="text" placeholder="Title" name="title">
+                    </div>
+                  </div>
+                  <div>
+                    <label>Summary</label>
+                    <div>
+                      <textarea class="textarea" placeholder="Summary" name="summary"></textarea>
+                    </div>
+                  </div>
+
+                  <div>
+                    <label>Pages</label>
+                    <div>
+                      <input class="input" type="number" placeholder="Pages" name="pages">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label>Publication</label>
+                    <div>
+                      <input class="input" type="text" placeholder="Publication" name="publication">
+                    </div>
+                  </div>
+
+                  <div>
+                    <label>Cover Image Url</label>
+                    <div>
+                      <input class="input" type="text" placeholder="Cover Image Url" name="cover_image_url">
+                    </div>
+                  </div>
+            
+             <div>
+              <label>Author</label>
+              <div>
+                <input class="input" type="text" placeholder="author" name="author">
+              </div>
+            </div>
+            
+                  <div>
+                    <label>Category</label>
+                    <div>
+                      <div>
+                        <select name="category">
+                          <option>Select category</option>
+                          <option>fiction</option>
+                          <option>adventure</option>
+                          <option>technology</option>
+                          <option>motivation</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <div>
+                      <button>Add</button>
+                    </div>
+                    <div>
+                      <button>Cancel</button>
+                    </div>
+                  </div>
+                </form>
+    </section>
+</body>
+</html>
