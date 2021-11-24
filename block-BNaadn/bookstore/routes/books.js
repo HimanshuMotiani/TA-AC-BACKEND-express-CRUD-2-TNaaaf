@@ -6,7 +6,6 @@ router.get("/new", (req, res) => {
     res.render("bookForm")
 })
 router.post("/", (req, res) => {
-    console.log(req.body);
     Book.create(req.body, (err, book) => {
         if (err) return next(err);
         Author.find({}, (err, author) => {
@@ -45,5 +44,25 @@ router.get("/sortbyauthor", (req, res) => {
         res.render("authorNames", { authors })
     })
 })
+router.get("/sortbycategory", (req, res) => {
+    Book.find({}, (err, books) => {
+        if (err) return next(err);
+        console.log(books);
+        var categories = books.map(ele=>{return ele.category});
+        let uniqueCategories = [...new Set(categories)];
+        res.render("booksByCategory", { uniqueCategories })
+    })
+})
+router.get("/sortbycategory/:id", (req, res) => {
+    let categoryName = req.params.id;
+    Book.find({category:categoryName}).populate("authorId").exec((err, books) => {
+        if (err) return next(err);
+        Book.find((err, titles) =>{
+        var categories = titles.map(ele=>{return ele.category});
+        let uniqueCategories = [...new Set(categories)];
+        res.render('booksByEachCategory', {books,uniqueCategories});
+    })
+})
+})
 
-module.exports = router
+module.exports = router;
